@@ -9,6 +9,8 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     const SystemName = req.body.SystemName;
+    const ChangeType = req.body.ChangeType;
+    const SeverityLevel = req.body.SeverityLevel;
     const Dateofrequest = Date.parse(req.body.Dateofrequest);
     const CRF = Number(req.body.CRF);
     const Description = req.body.Description;
@@ -18,8 +20,12 @@ router.route('/add').post((req, res) => {
     const DateOfReceipt = Date.parse(req.body.DateOfReceipt);
     const DMMRemarks = req.body.DMMRemarks;
 
+    
+
     const newExercise = new Exercise({
         SystemName,
+        ChangeType,
+        SeverityLevel,
         Dateofrequest,
         CRF,
         Description,
@@ -32,7 +38,7 @@ router.route('/add').post((req, res) => {
 
     newExercise.save()
         .then(() => res.json('Exercise added!'))
-        .catch(err => req.status(400).json('Error: '+ err));
+        .catch(err => res.status(400).json('Error: '+ err));
 });
 
 module.exports = router;

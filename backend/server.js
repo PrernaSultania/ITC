@@ -4,11 +4,21 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
+
+
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.set("views", path.join(__dirname, "views"));
+app.set('view engine','ejs');
+
+
 app.use(cors());
 app.use(express.json());
+
+router.get('/',function(req,res){
+    res.render('save.ejs')
+})
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
