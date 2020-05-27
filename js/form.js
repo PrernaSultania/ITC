@@ -1,5 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
 
 //paste this code under the head tag or in a separate js file.
 	// Wait for window load
@@ -20,7 +19,7 @@ function showTab(n) {
   } else {
     document.getElementById("prevBtn").style.display = "inline";
   }
-  if (n == 2) {
+  if (n == 3) {
     document.getElementById("nextBtn").style.display = "none";
   } else {
     document.getElementById("nextBtn").style.display = "inline";

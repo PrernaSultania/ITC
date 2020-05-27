@@ -19,6 +19,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
         <script src="/js/register.js"></script>
+        
     </head>
 
     <style>
@@ -59,12 +60,16 @@
     }
 </style>
 <body>
+    <div class="cont">
+        <image src="/images/infotech.png"></image>
+    </div>
+    
     <form id="regForm" action="/exercises" method="POST" name="regForm" ng-app="myApp" ng-controller="formCtrl" novalidate>
 
         <div class="tab">
             <!-- Name field -->
                     
-            <input class="input" type="text" placeholder="System name" SystemName="SystemName" required autofocus ng-model="SystemName" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(SystemName)"
+            <input class="input" type="text" placeholder="System name" name="SystemName" required autofocus ng-model="SystemName" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(SystemName)"
                             ng-class="{ 'is-danger' :regForm.SystemName.$invalid && !regForm.SystemName.$pristine,'is-success':regForm.SystemName.$valid && !regForm.SystemName.$pristine }">             
                 <!-- Name error message -->
                 <div class="notification is-danger" ng-show="regForm.SystemName.$invalid && !regForm.SystemName.$pristine">
@@ -74,7 +79,7 @@
                             <strong>only</strong> letters
                     </span>
                 </div> 
-            <input class="input" type="text" placeholder="Change Type" ChangeType="ChangeType" required autofocus ng-model="ChangeType" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(ChangeType)"
+            <input class="input" type="text" placeholder="Change Type" name="ChangeType" required autofocus ng-model="ChangeType" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(ChangeType)"
                             ng-class="{ 'is-danger' :regForm.ChangeType.$invalid && !regForm.ChangeType.$pristine, 'is-success':regForm.ChangeType.$valid && !regForm.ChangeType.$pristine }">
                 <div class="notification is-danger" ng-show="regForm.ChangeType.$invalid && !regForm.ChangeType.$pristine">
                     <span>
@@ -83,7 +88,7 @@
                         <strong>only</strong> letters
                     </span>
                 </div>
-            <input class="input" type="text" placeholder="Severity Level" SeverityLevel="SeverityLevel" required autofocus ng-model="SeverityLevel" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(SeverityLevel)"
+            <input class="input" type="text" placeholder="Severity Level" name="SeverityLevel" required autofocus ng-model="SeverityLevel" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(SeverityLevel)"
                 ng-class="{ 'is-danger' :regForm.SeverityLevel.$invalid && !regForm.SeverityLevel.$pristine, 'is-success':regForm.SeverityLevel.$valid && !regForm.SeverityLevel.$pristine }">
                 <div class="notification is-danger" ng-show="regForm.SeverityLevel.$invalid && !regForm.SeverityLevel.$pristine">
                     <span>
@@ -94,7 +99,7 @@
                 </div>
         </div>
         <div class="tab">
-            <input class="input" type="date" placeholder="yyyy-MM-dd" required autofocus ng-model="Dateofrequest"  
+            <input class="input" type="date" placeholder="Date of request" required autofocus ng-model="Dateofrequest"  
                 ng-class="{ 'is-danger': regForm.Dateofrequest.$invalid && !regForm.Dateofrequest.$pristine, 'is-success':regForm.Dateofrequest.$valid && !regForm.Dateofrequest.$pristine}">
                 <div class="notification is-danger" ng-show="regForm.Dateofrequest.$invalid && !regForm.Dateofrequest.$pristine">
                     <span>
@@ -114,7 +119,7 @@
                             <strong>5 digits</strong>
                         </span>
                     </div>
-                <input class="input" type="text" placeholder="Description" Description="Description" required autofocus ng-model="Description" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(Description)"
+                <input class="input" type="text" placeholder="Description" name="Description" required autofocus ng-model="Description" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(Description)"
                     ng-class="{ 'is-danger' :regForm.Description.$invalid && !regForm.Description.$pristine, 'is-success':regForm.Description.$valid && !regForm.Description.$pristine }">
                     <div class="notification is-danger" ng-show="regForm.Description.$invalid && !regForm.Description.$pristine">
                         <span>
@@ -123,7 +128,7 @@
                             <strong>only</strong> letters
                         </span>
                     </div>
-                <input class="input" type="date" placeholder="yyyy-MM-dd" required autofocus ng-model="ExpectedDate"  
+                <input class="input" type="date" placeholder="Expected Date" required autofocus ng-model="ExpectedDate"  
                     ng-class="{ 'is-danger': regForm.ExpectedDate.$invalid && !regForm.ExpectedDate.$pristine, 'is-success':regForm.ExpectedDate.$valid && !regForm.ExpectedDate.$pristine}">
                     <div class="notification is-danger" ng-show="regForm.ExpectedDate.$invalid && !regForm.ExpectedDate.$pristine">
                         <span>
@@ -134,7 +139,7 @@
                     </div>
     </div>
     <div class="tab">
-        <input class="input" type="text" placeholder="Requested By" RequestBy="RequestBy" required autofocus ng-model="RequestBy" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(RequestBy)"
+        <input class="input" type="text" placeholder="Requested By" name="RequestBy" required autofocus ng-model="RequestBy" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(RequestBy)"
         ng-class="{ 'is-danger' :regForm.RequestBy.$invalid && !regForm.RequestBy.$pristine, 'is-success':regForm.RequestBy.$valid && !regForm.RequestBy.$pristine }">
             <div class="notification is-danger" ng-show="regForm.RequestBy.$invalid && !regForm.RequestBy.$pristine">
                 <span>
@@ -144,7 +149,7 @@
                 </span>
             </div>
 
-        <input class="input" type="text" placeholder="Approved By" ApprovedBy="ApprovedBy" required autofocus ng-model="ApprovedBy" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(ApprovedBy)"
+        <input class="input" type="text" placeholder="Approved By" name="ApprovedBy" required autofocus ng-model="ApprovedBy" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(ApprovedBy)"
             ng-class="{ 'is-danger' :regForm.ApprovedBy.$invalid && !regForm.ApprovedBy.$pristine, 'is-success':regForm.ApprovedBy.$valid && !regForm.ApprovedBy.$pristine }">
             <div class="notification is-danger" ng-show="regForm.ApprovedBy.$invalid && !regForm.ApprovedBy.$pristine">
                 <span>
@@ -154,7 +159,7 @@
                 </span>
             </div>
 
-        <input class="input" type="date" placeholder="yyyy-MM-dd" required autofocus ng-model="DateOfReceipt"  
+        <input class="input" type="date" placeholder="Date of receipt" required autofocus ng-model="DateOfReceipt"  
             ng-class="{ 'is-danger': regForm.DateOfReceipt.$invalid && !regForm.DateOfReceipt.$pristine, 'is-success':regForm.DateOfReceipt.$valid && !regForm.DateOfReceipt.$pristine}">
             <div class="notification is-danger" ng-show="regForm.DateOfReceipt.$invalid && !regForm.DateOfReceipt.$pristine">
                 <span>
@@ -163,7 +168,7 @@
                 </span>
 
             </div>
-        <input class="input" type="text" placeholder="DMM Remarks" DMMRemarks="DMMRemarks" required autofocus ng-model="DMMRemarks" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(DMMRemarks)"
+        <input class="input" type="text" placeholder="DMM Remarks" name="DMMRemarks" required autofocus ng-model="DMMRemarks" ng-pattern="/^[a-z ,.'-]+$/i" ng-change="trimmer(DMMRemarks)"
             ng-class="{ 'is-danger' :regForm.DMMRemarks.$invalid && !regForm.DMMRemarks.$pristine, 'is-success':regForm.DMMRemarks.$valid && !regForm.DMMRemarks.$pristine }">
             <div class="notification is-danger" ng-show="regForm.DMMRemarks.$invalid && !regForm.DMMRemarks.$pristine">
                 <span>
@@ -172,7 +177,14 @@
                     <strong>only</strong> letters
                 </span>
             </div>
+            <div class="field" style="margin-top:3%">
+                <p class="control">
+                    <input type="submit" class="button is-info" value="Save" ng-click="load()" ng-disabled="regForm.SystemName.$invalid || regForm.ChangeType.$invalid || regForm.SeverityLevel.$invalid || regForm.email.$invalid || regForm.contact.$invalid
+                    || regForm.Date of request.$invalid || regForm.CRF.$invalid|| regForm.Description.$invalid||regForm.ExpectedDate.$invalid || regForm.RequestBy.$valid || regForm.ApprovedBy.$valid || regForm.DateOfReceipt.$valid || regForm.DMMremarks.$valid">
+                </p>
+            </div>
     </div>
+    
     <div style="overflow:auto;" class="mt-3">
         <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="my-4"
             style="float: left">Back</button>
@@ -185,6 +197,8 @@
     <div>&nbsp;</div>
     <div>&nbsp;</div>
     <div>&nbsp;</div>
+    <div>&nbsp;</div>
+
 
 </body>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -196,6 +210,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <script src="/js/form.js"></script>
 
 </html>

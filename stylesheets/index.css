@@ -17,6 +17,13 @@ body {
   overflow: hidden;
   margin: 0 !important;
 }
+.cont{
+    height: 200 !important;
+    margin-top: 0 !important;
+    margin-left: 650px !important;
+    max-width: 15% !important;
+    z-index:100;
+}
 .button1{
     text-align: center;
     margin-top: 30vh;
