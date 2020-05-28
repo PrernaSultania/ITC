@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- links -->
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="/stylesheets/profile.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <script src="/js/receipt.js"></script>
+</head>
+    <body style="background-color:#04131E;" 
+    ng-app="homeApp"
+    ng-controller="eventCtrl"
+    ng-init="initialize(<%=JSON.stringify(data)%>)">
+    
+    <div class="card">
+        <div class="content">
+            <h4  ng-show="details.length == 0" class="center">No receipts are generated yet.</h4>
+            <table class="striped" ng-show="details.length > 0">
+                <thead>
+                    <tr>
+                        <th>System Name</th>
+                        <th>Date of Request</th>
+                        <th>CRF number</th>
+                        <th>Description</th>
+                        <th>Change Type</th>
+                        <th>Severity Type</th>
+                        <th>Expected Date</th>
+                        <th>Requested By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="detail in details">
+                        <td>{{detail.id}}</td>
+                        <td ><span ng-repeat="x in detail.name">{{ x }}<br> </span></td>
+                        <td>Rs. {{ detail.fee }}</td>
+                        <td> {{ detail.date | date : 'dd-MMM-yyyy' }}</td>
+                        <td ng-class="detail.paidbool == 'true' ? 'paid' : 'pending'">{{detail.paid}}</td>
+                        <td>{{detail.type}}</td>
+                    </tr>
+                </tbody>
+            </table>            
+        </div>
+    </div>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+</body>
+</html>
