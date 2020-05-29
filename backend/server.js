@@ -13,15 +13,16 @@ app.set("view engine", "ejs");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../")));
 
 app.get("/", function (req, res) {
   res.render("save");
 });
 
-app.get("/search", function(req, res){
-    res.render("search");
-})
+app.get("/search", function (req, res) {
+  res.render("search");
+});
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {
