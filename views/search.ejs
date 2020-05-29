@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
-    <script src="/js/receipt.js"></script>
+    <!-- <script src="/js/receipt.js"></script> -->
 </head>
     <body style="background-color:#04131E;" 
     ng-app="homeApp"
@@ -42,12 +42,17 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="detail in details">
-                        <td>{{detail.id}}</td>
-                        <td ><span ng-repeat="x in detail.name">{{ x }}<br> </span></td>
-                        <td>Rs. {{ detail.fee }}</td>
-                        <td> {{ detail.date | date : 'dd-MMM-yyyy' }}</td>
-                        <td ng-class="detail.paidbool == 'true' ? 'paid' : 'pending'">{{detail.paid}}</td>
-                        <td>{{detail.type}}</td>
+                        <td>{{detail.name}}</td>
+                        <td>{{detail.dor | date : 'dd-MMM-yyyy'}}</td>
+                        <td>{{detail.crf}}</td>
+                        <td>{{detail.des}}</td>
+                        <td>{{detail.chg}}</td>
+                        <td>{{detail.sev}}</td>
+                        <td>{{detail.exp | date : 'dd-MMM-yyyy'}}</td>
+                        <td>{{detail.req}}</td>
+
+                        
+                        
                     </tr>
                 </tbody>
             </table>            
