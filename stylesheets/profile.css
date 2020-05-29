@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+body {
+  background-color: #04131E;
+}
+.table {
+    width: 80%;
+  }
+  .main-container{
+      min-height: 100vh;
+      overflow: hidden;
+      display: block;
+      align-self: center;
+  }
+  .card {
+    /* position: absolute; */
+    /* align: center; */
+    background-color: white;
+    width: 800px !important;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: auto !important;
+    border-radius: 20px !important;
+  }
+  .content {
+    overflow-x: scroll;
+  }
+  table {
+    overflow-x: scroll;
+  }
+  td {
+    text-align: center;
+    font-size: 18px;
+    /* padding: 10px; */
+    padding-right: 20px;
+  }
+  th {
+    text-align: center !important;
+    font-size: 18px;
+    /* padding: 10px;    */
+    padding-right: 20px;
+  }
+  table {
+    width: 95%;
+    margin: auto;
+  }
+  

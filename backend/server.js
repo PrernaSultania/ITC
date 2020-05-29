@@ -19,6 +19,10 @@ app.get("/", function (req, res) {
   res.render("save");
 });
 
+app.get("/search", function(req, res){
+    res.render("search");
+})
+
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {
   useNewUrlParser: true,
