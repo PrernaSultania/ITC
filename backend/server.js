@@ -15,6 +15,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../")));
+// app.use(express.static(path.join(__dirname, "../search")));
+
 
 app.get("/", function (req, res) {
   res.render("save");
