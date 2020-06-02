@@ -42,4 +42,17 @@ router.route("/add").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.route("/search").post((req, res) => {
+  let SystemName = req.body.SystemName;
+  if (!SystemName) {
+    res.json({ message: "SystemName not provided" });
+  }
+  Exercise.find({ SystemName: SystemName }).then((data) => {
+    if (data.length == 0) {
+      res.json({ message: "No data found with given SystemName" });
+    }
+    res.json({ data: data, count: data.length });
+  });
+});
+
 module.exports = router;

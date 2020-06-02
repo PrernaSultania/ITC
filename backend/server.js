@@ -22,18 +22,18 @@ app.get("/", function (req, res) {
   res.render("save");
 });
 
-// app.get("/search", function (req, res) {
-//   res.render("search");
-// });
-router.get("/search", async (req, res, next) => {
-    try {
-      let data = await userFunction.getReceipt(req.exercises.SystemName);
-      // res.json(data);
-      res.render("search", { data: data });
-    } catch (error) {
-      return next(error);
-    }
-  });
+// // app.get("/search", function (req, res) {
+// //   res.render("search");
+// // });
+// router.get("/search", async (req, res, next) => {
+//     try {
+//       let data = await userFunction.getReceipt(req.exercises.SystemName);
+//       // res.json(data);
+//       res.render("search", { data: data });
+//     } catch (error) {
+//       return next(error);
+//     }
+//   });
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {
