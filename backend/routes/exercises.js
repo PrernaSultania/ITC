@@ -6,6 +6,9 @@ router.route("/").get((req, res) => {
     .then((exercises) => res.json(exercises))
     .catch((err) => res.status(400).json("Error: " + err));
 });
+router.route("/search").get((req,res) => {
+  res.render("search.ejs")
+});
 
 router.route("/add").post((req, res) => {
   //   console.log(req.body);
